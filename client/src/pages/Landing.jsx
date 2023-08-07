@@ -1,6 +1,7 @@
 import main from '../assets/images/main.svg';
 import styled from 'styled-components';
 import { Logo } from '../components';
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
@@ -20,7 +21,12 @@ const Landing = () => {
             voluptate recusandae voluptatum ut! Blanditiis tenetur pariatur
             perferendis possimus facere, illum porro odio?
           </p>
-          <button className="btn btn-hero">Login / Register</button>
+          <Link to="/register" className="btn register-link">
+            register
+          </Link>
+          <Link to="/login" className="btn">
+            Login / Demo User
+          </Link>
         </div>
         <img src={main} alt="job hunt" className="img main-img" />
       </div>
@@ -37,35 +43,39 @@ const Wrapper = styled.main`
     display: flex;
     align-items: center;
   }
-
   .page {
     min-height: calc(100vh - var(--nav-height));
     display: grid;
     align-items: center;
     margin-top: -3rem;
   }
-
   h1 {
     font-weight: 700;
     span {
       color: var(--primary-500);
     }
+    margin-bottom: 1.5rem;
   }
-
   p {
-    color: var(--grey-600);
+    line-height: 2;
+    color: var(--text-secondary-color);
+    margin-bottom: 1.5rem;
+    max-width: 35em;
   }
-
+  .register-link {
+    margin-right: 1rem;
+  }
   .main-img {
     display: none;
   }
-
+  .btn {
+    padding: 0.75rem 1rem;
+  }
   @media (min-width: 992px) {
     .page {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 400px;
       column-gap: 3rem;
     }
-
     .main-img {
       display: block;
     }
